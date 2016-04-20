@@ -1,11 +1,15 @@
 class RpgController < ApplicationController
   def index
-  	if !session[:gold]
+  	if session[:gold] == nil
   		session[:gold] = 0
-  		session[:log] = []
   	end
-  	@gold = session[:gold]
-  	@logs = session[:log]
+
+    if session[:log] == nil
+      session[:log] = []
+    end
+
+    @gold = session[:gold]
+    @logs = session[:log]
   end
 
   def farm
@@ -31,7 +35,7 @@ class RpgController < ApplicationController
   	@time = Time.now.strftime("%Y/%m/%d %H:%M %p")
   	session[:gold] += @gain
   	if @gain > 0
-  		session[:log] = "Earned #{@gain} golds from the casino! (#{@time})"
+  		session[:log] << "Earned #{@gain} golds from the casino! (#{@time})"
   	else
   		session[:log] << "Entered a casino and lost #{@gain} golds...Ouch! (#{@time})"
   	end

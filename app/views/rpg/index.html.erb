@@ -3,61 +3,6 @@
 	<head>
 		<meta charset="UTF-8" />
 		<title>Ninja Money!!!</title>
-		<style type="text/css">
-			#wrapper {
-				width: 900px;
-				min-height: 550px;
-				margin: 0px auto;
-				border: 2px solid black;
-			}
-			#wrapper h4 {
-				display: block;
-				margin: 20px;
-				text-align: left;
-			}
-			#wrapper p {
-				padding: 20px;
-				text-align: left;
-			}
-			#choices {
-				display: inline-block;
-				width: 870px;
-				min-height: 200px;
-			}
-			#choices form {
-				display: inline-block;
-				width: 170px;
-				height: 150px;
-				border: 1px solid black;
-				margin-left: 20px;
-				padding: 10px;
-			}
-			#choices form p {
-				padding: 10px;
-			}
-			#choices form h3, p {
-				text-align: center;
-			}
-			#choices form input {
-				display: inline;
-				width: 100px;
-				border: 1px solid black;
-				background-color: yellow;
-				box-shadow: 2px 2px purple;
-				margin: 5px 30px;
-			}
-			#box {
-				width: 800px;
-				height: 170px;
-				margin: 0px 10px 10px 20px;
-				border: 1px solid black;
-				overflow: scroll;
-			}
-			#box p {
-				margin: 5px;
-				padding: 5px;
-			}
-		</style>
 	</head>
 	<body>
 		<div id="wrapper">
@@ -93,11 +38,17 @@
 				</form>
 			</div>
 			<p>Activities:</p>
-<%			if @logs %>
+			<% if @logs %>
 				<div id="box">
-					<p><%= @logs %></p>
+				<% @logs.reverse.each do |log| %>
+					<% if log.include?("Earned") %>
+						<p class="earned"><%= log %></p>
+					<% else %>
+						<p class="lost"><%= log %></p>
+					<% end %>
+				<% end %>
 				</div>
-<%			end %>
+			<% end %>
 		</div>
 	</body>
 </html>
