@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Ninja Money!!!</title>
+		<style type="text/css">
+			#wrapper {
+				width: 900px;
+				min-height: 550px;
+				margin: 0px auto;
+				border: 2px solid black;
+			}
+			#wrapper h4 {
+				display: block;
+				margin: 20px;
+				text-align: left;
+			}
+			#wrapper p {
+				padding: 20px;
+				text-align: left;
+			}
+			#choices {
+				display: inline-block;
+				width: 870px;
+				min-height: 200px;
+			}
+			#choices form {
+				display: inline-block;
+				width: 170px;
+				height: 150px;
+				border: 1px solid black;
+				margin-left: 20px;
+				padding: 10px;
+			}
+			#choices form p {
+				padding: 10px;
+			}
+			#choices form h3, p {
+				text-align: center;
+			}
+			#choices form input {
+				display: inline;
+				width: 100px;
+				border: 1px solid black;
+				background-color: yellow;
+				box-shadow: 2px 2px purple;
+				margin: 5px 30px;
+			}
+			#box {
+				width: 800px;
+				height: 170px;
+				margin: 0px 10px 10px 20px;
+				border: 1px solid black;
+				overflow: scroll;
+			}
+			#box p {
+				margin: 5px;
+				padding: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrapper">
+			<h4>Your Gold: <b><%= @gold %></b></h4>
+			<div id="choices">
+				<form action="/farm" method="post">
+					<input name="authenticity_token" type="hidden" value="<% form_authenticity_token %>" />
+					<h3>Farm</h3>
+					<p>(earns 10-20 golds)</p>
+					<input type="hidden" name="_method" value="farm" />
+					<input type="submit" value="Find Gold!" />
+				</form>
+				<form action="/cave" method="post">
+					<input name="authenticity_token" type="hidden" value="<% form_authenticity_token %>" />
+					<h3>Cave</h3>
+					<p>(earns 5-10 golds)</p>
+					<input type="hidden" name="_method" value="cave" />
+					<input type="submit" value="Find Gold!" />
+				</form>
+				<form action="/house" method="post">
+					<input name="authenticity_token" type="hidden" value="<% form_authenticity_token %>" />
+					<h3>House</h3>
+					<p>(earns 2-5 golds)</p>
+					<input type="hidden" name="_method" value="house" />
+					<input type="submit" value="Find Gold!" />
+				</form>
+				<form action="/casino" method="post">
+					<input name="authenticity_token" type="hidden" value="<% form_authenticity_token %>" />
+					<h3>Casino</h3>
+					<p>(earns/takes 0-50 golds)</p>
+					<input type="hidden" name="_method" value="casino" />
+					<input type="submit" value="Find Gold!" />
+				</form>
+			</div>
+			<p>Activities:</p>
+<%			if @logs %>
+				<div id="box">
+					<p><%= @logs %></p>
+				</div>
+<%			end %>
+		</div>
+	</body>
+</html>
