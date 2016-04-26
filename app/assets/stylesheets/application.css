@@ -14,49 +14,28 @@
  *= require_self
  */
 #wrapper {
-	width: 900px;
-	min-height: 550px;
+	width: 100%;
+	height: 100%;
 	margin: 0px auto;
-	border: 2px solid black;
 }
-#wrapper h4 {
+html {
+	background: url("background.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+#wrapper h2 {
+	color: gold;
 	display: block;
 	margin: 20px;
 	text-align: left;
 }
-#wrapper p {
-	padding: 20px;
-	text-align: left;
-}
-#choices {
-	display: inline-block;
-	width: 870px;
-	min-height: 200px;
-}
-#choices form {
-	display: inline-block;
-	width: 170px;
-	height: 150px;
-	border: 1px solid black;
-	margin-left: 20px;
-	padding: 10px;
-}
-#choices form p {
-	padding: 10px;
-}
-#choices form h3, p {
-	text-align: center;
-}
-#choices form input {
-	display: inline;
-	width: 100px;
-	border: 1px solid black;
-	background-color: yellow;
-	box-shadow: 2px 2px purple;
-	margin: 5px 30px;
+#wrapper h3, p {
+	padding: 10px 20px;
 }
 #box {
-	width: 800px;
+	width: 500px;
 	height: 170px;
 	margin: 0px 10px 10px 20px;
 	border: 1px solid black;
@@ -68,9 +47,76 @@
 }
 
 #box .earned {
-	color: green;
+	color: gold;
 }
 
 #box .lost {
 	color: red;
+}
+.choices {
+	display: inline-block;
+	width: 100%;
+}
+.choices form {
+	display: inline-block;
+	width: 20%;
+	height: auto;
+	margin-left: 20px;
+	padding: 10px;
+}
+#farm img {
+	max-width: 100%;
+	border-radius: 5px;
+}
+@-webkit-keyframes jiggle {
+	0% { -webkit-transform: rotate(-1deg); }
+	50% { -webkit-transform: rotate(1deg); }
+}
+.farm:hover {
+	-webkit-animation-name: jiggle;
+	-webkit-animation-duration: 0.4s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+	-webkit-transform-origin: 50% 50%;
+}
+.choices {
+	text-align: center;
+}
+.choices form p {
+	padding: 7px;
+}
+.choices form h3, p {
+	text-align: center;
+}
+.choices form input {
+	display: inline;
+	width: 100px;
+	border: 1px solid black;
+	background-color: yellow;
+	box-shadow: 2px 2px purple;
+	margin: 0 auto;
+}
+.gold:hover {
+  animation: shake 0.7s cubic-bezier(.26,.07,.19,.72) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-3px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(3px, 0, 0);
+  }
 }

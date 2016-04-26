@@ -6,38 +6,8 @@
 	</head>
 	<body>
 		<div id="wrapper">
-			<h4>Your Gold: <b><%= @gold %></b></h4>
-			<div id="choices">
-				<form action="/farm" method="post">
-					<input name="authenticity_token" type="hidden" value="<% form_authenticity_token %>" />
-					<h3>Farm</h3>
-					<p>(earns 10-20 golds)</p>
-					<input type="hidden" name="_method" value="farm" />
-					<input type="submit" value="Find Gold!" />
-				</form>
-				<form action="/cave" method="post">
-					<input name="authenticity_token" type="hidden" value="<% form_authenticity_token %>" />
-					<h3>Cave</h3>
-					<p>(earns 5-10 golds)</p>
-					<input type="hidden" name="_method" value="cave" />
-					<input type="submit" value="Find Gold!" />
-				</form>
-				<form action="/house" method="post">
-					<input name="authenticity_token" type="hidden" value="<% form_authenticity_token %>" />
-					<h3>House</h3>
-					<p>(earns 2-5 golds)</p>
-					<input type="hidden" name="_method" value="house" />
-					<input type="submit" value="Find Gold!" />
-				</form>
-				<form action="/casino" method="post">
-					<input name="authenticity_token" type="hidden" value="<% form_authenticity_token %>" />
-					<h3>Casino</h3>
-					<p>(earns/takes 0-50 golds)</p>
-					<input type="hidden" name="_method" value="casino" />
-					<input type="submit" value="Find Gold!" />
-				</form>
-			</div>
-			<p>Activities:</p>
+			<h2>Total Gold: <b><%= @gold %></b></h2>
+			<h3>Activities:</h3>
 			<% if @logs %>
 				<div id="box">
 				<% @logs.reverse.each do |log| %>
@@ -49,6 +19,37 @@
 				<% end %>
 				</div>
 			<% end %>
+			<div class="choices">
+				<form id="farm" action="/farm" method="post">
+					<input name="authenticity_token" type="hidden" value="<% form_authenticity_token %>" />
+					<h3>Farm</h3>
+					<%= image_tag("farm.jpg", :alt => "farm", class: "farm") %>
+					<p>(earns 10-20 golds)</p>
+					<input type="hidden" name="_method" value="farm" />
+					<input class="gold" type="submit" value="Find Gold!" />
+				</form>
+				<form id="cave" action="/cave" method="post">
+					<input name="authenticity_token" type="hidden" value="<% form_authenticity_token %>" />
+					<h3>Cave</h3>
+					<p>(earns 5-10 golds)</p>
+					<input type="hidden" name="_method" value="cave" />
+					<input class="gold" type="submit" value="Find Gold!" />
+				</form>
+				<form id="house" action="/house" method="post">
+					<input name="authenticity_token" type="hidden" value="<% form_authenticity_token %>" />
+					<h3>House</h3>
+					<p>(earns 2-5 golds)</p>
+					<input type="hidden" name="_method" value="house" />
+					<input class="gold" type="submit" value="Find Gold!" />
+				</form>
+				<form id="casino" action="/casino" method="post">
+					<input name="authenticity_token" type="hidden" value="<% form_authenticity_token %>" />
+					<h3>Casino</h3>
+					<p>(earns/takes 0-50 golds)</p>
+					<input type="hidden" name="_method" value="casino" />
+					<input class="gold" type="submit" value="Find Gold!" />
+				</form>
+			</div>
 		</div>
 	</body>
 </html>
