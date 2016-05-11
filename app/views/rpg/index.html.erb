@@ -8,19 +8,20 @@
 		<div id="wrapper">
 			<h2>Total Gold: <b><%= @gold %></b></h2>
 			<h3>Activities:</h3>
-			<% if @logs %>
-				<div id="box">
-				<% @logs.reverse.each do |log| %>
-					<% if log.include?("Earned") %>
-						<p class="earned"><%= log %></p>
-					<% else %>
-						<p class="lost"><%= log %></p>
+			<div id="box">
+				<i class="pin"></i>
+				<% if @logs %>
+					<% @logs.reverse.each do |log| %>
+						<% if log.include?("Earned") %>
+							<p class="earned"><%= log %></p>
+						<% else %>
+							<p class="lost"><%= log %></p>
+						<% end %>
 					<% end %>
 				<% end %>
-				</div>
-			<% end %>
+			</div>
 			<div class="choices">
-				<form id="farm" action="/farm" method="post">
+				<form class="building" action="/farm" method="post">
 					<input name="authenticity_token" type="hidden" value="<% form_authenticity_token %>" />
 					<h3>Farm</h3>
 					<%= image_tag("farm.jpg", :alt => "farm", class: "farm") %>
@@ -28,23 +29,26 @@
 					<input type="hidden" name="_method" value="farm" />
 					<input class="gold" type="submit" value="Find Gold!" />
 				</form>
-				<form id="cave" action="/cave" method="post">
+				<form class="building" action="/cave" method="post">
 					<input name="authenticity_token" type="hidden" value="<% form_authenticity_token %>" />
 					<h3>Cave</h3>
+					<%= image_tag("cave.jpg", :alt => "cave", class: "cave") %>
 					<p>(earns 5-10 golds)</p>
 					<input type="hidden" name="_method" value="cave" />
 					<input class="gold" type="submit" value="Find Gold!" />
 				</form>
-				<form id="house" action="/house" method="post">
+				<form class="building" action="/house" method="post">
 					<input name="authenticity_token" type="hidden" value="<% form_authenticity_token %>" />
 					<h3>House</h3>
+					<%= image_tag("home.jpg", :alt => "home", class: "home") %>
 					<p>(earns 2-5 golds)</p>
 					<input type="hidden" name="_method" value="house" />
 					<input class="gold" type="submit" value="Find Gold!" />
 				</form>
-				<form id="casino" action="/casino" method="post">
+				<form class="building" action="/casino" method="post">
 					<input name="authenticity_token" type="hidden" value="<% form_authenticity_token %>" />
 					<h3>Casino</h3>
+					<%= image_tag("casino.jpg", :alt => "casino", class: "casino") %>
 					<p>(earns/takes 0-50 golds)</p>
 					<input type="hidden" name="_method" value="casino" />
 					<input class="gold" type="submit" value="Find Gold!" />

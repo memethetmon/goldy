@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+@import url(http://fonts.googleapis.com/css?family=Satisfy);
+
 #wrapper {
 	width: 100%;
 	height: 100%;
@@ -37,21 +39,82 @@ html {
 #box {
 	width: 500px;
 	height: 170px;
-	margin: 0px 10px 10px 20px;
-	border: 1px solid black;
+	margin: 10px 10px 10px 20px;
+	/*border: 1px solid black;*/
 	overflow: scroll;
+	position: relative;
+	background: #eae672;
+	font-family: Satisfy;
+	box-shadow: 0 10px 10px 2px rgba(0,0,0,0.3);
+	/*-webkit-transform: rotate(2deg);
+	-moz-transform: rotate(2deg);
+	-o-transform: rotate(2deg);
+	-ms-transform: rotate(2deg);
+	transform: rotate(2deg);*/
 }
+/************** adding the pin ***************/
+/*	.pin {
+		background-color: grey;
+		display: block;
+		height: 30px;
+		width: 2px;
+		position: absolute;
+		left: 50%;
+		top: -16px;
+		z-index: 1;
+	}*/
+/**** making the ball top of the pin and its shadow ****/
+/*	.pin:after {
+		background-color: #A31;
+		background-image: radial-gradient(25% 25%, circle, hsla(0,0%,100%,.3), hsla(0,0%,0%,.3));
+		border-radius: 50%;
+		box-shadow: inset 0 0 0 1px hsla(0,0%,0%,.1),
+					inset 3px 3px 3px hsla(0,0%,100%,.2),
+					inset -3px -3px 3px hsla(0,0%,0%,.2),
+					inset 23px 20px 3px hsla(0,0%,0%,.15);
+		content: '';
+		height: 12px;
+		left: -5px;
+		position: absolute;
+		top: -10px;
+		width: 12px;
+	}*/
+/**** creating and rotating the shadow of the metal part of the pin *****/
+/*	.pin:before {
+		background-color: hsla(0,0%,0%,0.1);
+		box-shadow: 0 0 .25em hsla(0,0%,0%,.1);
+		content: '';
+
+		height: 24px;
+		width: 2px;
+		left: 0;
+		position: absolute;
+		top: 8px;
+
+		transform: rotate(57.5deg);
+		-moz-transform: rotate(57.5deg);
+		-webkit-transform: rotate(57.5deg);
+		-o-transform: rotate(57.5deg);
+		-ms-transform: rotate(57.5deg);
+
+		transform-origin: 50% 100%;
+		-moz-transform-origin: 50% 100%;
+		-webkit-transform-origin: 50% 100%;
+		-ms-transform-origin: 50% 100%;
+		-o-transform-origin: 50% 100%;
+	}*/
+
 #box p {
-	margin: 5px;
+	margin: 10px 5px;
 	padding: 5px;
 }
 
 #box .earned {
-	color: gold;
+	color: green;
 }
 
 #box .lost {
-	color: red;
+	color: #b30000;
 }
 .choices {
 	display: inline-block;
@@ -64,11 +127,11 @@ html {
 	margin-left: 20px;
 	padding: 10px;
 }
-#farm img {
+.building img {
 	max-width: 100%;
 	border-radius: 5px;
 }
-@-webkit-keyframes jiggle {
+/*@-webkit-keyframes jiggle {
 	0% { -webkit-transform: rotate(-1deg); }
 	50% { -webkit-transform: rotate(1deg); }
 }
@@ -78,12 +141,12 @@ html {
 	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-timing-function: linear;
 	-webkit-transform-origin: 50% 50%;
-}
+}*/
 .choices {
 	text-align: center;
 }
 .choices form p {
-	padding: 7px;
+	padding: 6px;
 }
 .choices form h3, p {
 	text-align: center;
